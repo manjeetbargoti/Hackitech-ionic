@@ -1,1 +1,23 @@
 /* Empty. Add your own CSS if you like */
+
+.head-bar {
+	background-color: #cc3363 !important;
+}
+
+.button-dark-pink {
+	background-color: #cc3363 !important;
+}
+
+.bar-dark-pink {
+	background-color: #cc3363 !important;
+	color: #ffffff !important;
+}
+
+.button-dark-pink > i {
+	color: #ffffff;
+}
+
+.ion-chevron-left {
+	color: #fff;
+}
+

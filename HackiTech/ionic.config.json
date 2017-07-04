@@ -1,6 +1,6 @@
 {
   "name": "HackiTech",
-  "app_id": "",
+  "app_id": "176fd4d2",
   "type": "ionic1",
   "watchPatterns": [
     "scss/**/*"
