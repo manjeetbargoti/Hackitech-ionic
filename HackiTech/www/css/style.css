@@ -21,3 +21,16 @@
 	color: #fff;
 }
 
+#main_back_img {
+	background-image: url('../img/bg/back_img1.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#post_back_img {
+	background-image: url('../img/bg/back_img4.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}

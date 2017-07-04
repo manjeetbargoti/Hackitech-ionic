@@ -40,7 +40,7 @@ angular.module('starter')
 
 					$scope.recent_posts.forEach(function(element, index, array){
 						element.excerpt = element.excerpt.substr(0,90);
-						element.excerpt = element.excerpt + "... Read More";
+						element.excerpt = element.excerpt + '...<i>Read More</i>';
 						element.excerpt = $sce.trustAsHtml(element.excerpt);
 						element.title = $sce.trustAsHtml(element.title);
 					})
@@ -62,7 +62,7 @@ angular.module('starter')
 
 				$scope.recent_posts.forEach(function(element, index, array){
 					element.excerpt = element.excerpt.substr(0,90);
-					element.excerpt = element.excerpt + "... Read More";
+					element.excerpt = element.excerpt + '...<i>Read More</i>';
 					element.excerpt = $sce.trustAsHtml(element.excerpt);
 					element.title = $sce.trustAsHtml(element.title);
 				})
@@ -88,7 +88,7 @@ angular.module('starter')
 
 					newPosts.forEach(function(element, index, array){
 						element.excerpt = element.excerpt.substr(0,90);
-						element.excerpt = element.excerpt + "... Read More";
+						element.excerpt = element.excerpt + '...<i>Read More</i>';
 						element.excerpt = $sce.trustAsHtml(element.excerpt);
 						element.title = $sce.trustAsHtml(element.title);
 					})
@@ -126,6 +126,28 @@ angular.module('starter')
 
 			})
 
+	})
+
+	.controller('CatCtrl', function($scope, $http, $sce, $stateParams) {
+		
+		// $scope.doRefresh = function()
+		// {
+			$http.get('https://hackitech.com/api/get_category_posts/?id=' +$stateParams.catId).than(
+			function(returnCatPost) {
+				$scope.category_posts = returnCatPost.data.posts;
+				$scope.category_posts.forEach(function(element, index, array) {
+					element.excerpt = element.excerpt.substr(0,90);
+					element.excerpt = element.excerpt + '...<i>Read More</i>';
+					element.excerpt = $sce.trustAsHtml(element.excerpt);
+					element.title = $sce.trustAsHtml(element.title);
+				})
+				$scope.category_title = returnCatPost.data.category.title;
+				$scope.$broadcast('scroll.refreshComplete');	
+			}, function(err) {
+
+			})
+		// }
+		// $scope.doRefresh();
 	})
 
 
