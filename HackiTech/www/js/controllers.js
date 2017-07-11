@@ -54,22 +54,22 @@ angular.module('starter')
 
 		$scope.recent_posts = [];
 
-		$http.get("https://hackitech.com/api/get_posts/").then(
-			function(returnPostData) {
-				// console.log(returnPostData);
-				$scope.recent_posts = returnPostData.data.posts;
-				$scope.count_total = returnPostData.data.count_total;
+		// $http.get("https://hackitech.com/api/get_posts/").then(
+		// 	function(returnPostData) {
+		// 		// console.log(returnPostData);
+		// 		$scope.recent_posts = returnPostData.data.posts;
+		// 		$scope.count_total = returnPostData.data.count_total;
 
-				$scope.recent_posts.forEach(function(element, index, array){
-					element.excerpt = element.excerpt.substr(0,90);
-					element.excerpt = element.excerpt + '...<i>Read More</i>';
-					element.excerpt = $sce.trustAsHtml(element.excerpt);
-					element.title = $sce.trustAsHtml(element.title);
-				})
+		// 		$scope.recent_posts.forEach(function(element, index, array){
+		// 			element.excerpt = element.excerpt.substr(0,90);
+		// 			element.excerpt = element.excerpt + '...<i>Read More</i>';
+		// 			element.excerpt = $sce.trustAsHtml(element.excerpt);
+		// 			element.title = $sce.trustAsHtml(element.title);
+		// 		})
 
-			}, function(err) {
+		// 	}, function(err) {
 
-		});
+		// });
 
 		$scope.canLoadMore = function()
 		{
@@ -106,9 +106,9 @@ angular.module('starter')
 		}
 	})
 
-	.controller('PostCtrl', function($scope, $http, $sce, $stateParams){
+	.controller('PostCtrl', function($http, $scope, $stateParams, $sce){
 		
-		$http.get('https://hackitech.com/api/get_post/?id='+ $stateParams.postId).then(
+		$http.get('https://hackitech.com/api/get_post/?id=' + $stateParams.postId).then(
 			function(returnPost) {
 				$scope.post_title = returnPost.data.post.title;
 				$scope.post_category = returnPost.data.post.categories[0].title ? returnPost.data.post.categories[0].title : 'no category';
@@ -128,11 +128,11 @@ angular.module('starter')
 
 	})
 
-	.controller('CatCtrl', function($scope, $http, $sce, $stateParams) {
+	.controller('CatCtrl', function($http, $scope, $stateParams, $sce) {
 		
 		// $scope.doRefresh = function()
 		// {
-			$http.get('https://hackitech.com/api/get_category_posts/?id=' +$stateParams.catId).than(
+			$http.get('https://hackitech.com/api/get_category_posts/?id=' + $stateParams.catId).than(
 			function(returnCatPost) {
 				$scope.category_posts = returnCatPost.data.posts;
 				$scope.category_posts.forEach(function(element, index, array) {

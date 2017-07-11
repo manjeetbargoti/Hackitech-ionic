@@ -28,7 +28,7 @@
 		</ion-refresher>
 
 		<ion-list can-swipe="true">
-		  <ion-item class="item item-thumbnail-left item-text-wrap item-icon-right card" ng-repeat="post in recent_posts | filter: {title: searchText}" href='#/main/postDetail/{{post.id}}'>
+		  <ion-item  ng-href="#/main/postDetail/{{post.id}}" class="item item-thumbnail-left item-text-wrap item-icon-right" ng-repeat="post in recent_posts | filter: {title: searchText}">
 			<img ng-src="{{ post.thumbnail }}">
 			<h4 style="text-align: justify; font-weight: bold;" ng-bind-html="post.title"></h4>
 			<p style="text-align: justify; font-size: 12px;" ng-bind-html="post.excerpt"></p>
