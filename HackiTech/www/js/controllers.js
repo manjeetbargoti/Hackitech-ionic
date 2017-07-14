@@ -54,23 +54,6 @@ angular.module('starter')
 
 		$scope.recent_posts = [];
 
-		// $http.get("https://hackitech.com/api/get_posts/").then(
-		// 	function(returnPostData) {
-		// 		// console.log(returnPostData);
-		// 		$scope.recent_posts = returnPostData.data.posts;
-		// 		$scope.count_total = returnPostData.data.count_total;
-
-		// 		$scope.recent_posts.forEach(function(element, index, array){
-		// 			element.excerpt = element.excerpt.substr(0,90);
-		// 			element.excerpt = element.excerpt + '...<i>Read More</i>';
-		// 			element.excerpt = $sce.trustAsHtml(element.excerpt);
-		// 			element.title = $sce.trustAsHtml(element.title);
-		// 		})
-
-		// 	}, function(err) {
-
-		// });
-
 		$scope.canLoadMore = function()
 		{
 			return true;
