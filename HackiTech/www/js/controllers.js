@@ -116,16 +116,16 @@ angular.module('starter')
 		// $scope.doRefresh = function()
 		// {
 			$http.get('https://hackitech.com/api/get_category_posts/?id=' + $stateParams.catId).than(
-			function(returnCatPost) {
-				$scope.category_posts = returnCatPost.data.posts;
+			function(data) {
+				$scope.category_posts = data.data.posts;
 				$scope.category_posts.forEach(function(element, index, array) {
 					element.excerpt = element.excerpt.substr(0,90);
 					element.excerpt = element.excerpt + '...<i>Read More</i>';
 					element.excerpt = $sce.trustAsHtml(element.excerpt);
 					element.title = $sce.trustAsHtml(element.title);
 				})
-				$scope.category_title = returnCatPost.data.category.title;
-				$scope.$broadcast('scroll.refreshComplete');	
+				$scope.category_title = data.data.category.title;
+				// $scope.$broadcast('scroll.refreshComplete');	
 			}, function(err) {
 
 			})
